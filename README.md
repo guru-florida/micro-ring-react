@@ -2,6 +2,8 @@
 
 *Implements a small ring guage for indicating a single KPI metric.*
 
+See also the Micro-Ring Guage using [D3](https://github.com/guru-florida/micro-ring-d3) for non-React projects.
+
 Beyond just a simple ring guage, have you ever needed to show the significance of a small number
 and yet need to also support large ones? Using a standard ring or pie chart small numbers,
 such as 1 out of 100, get lost in the pixels. This ring gauge solves this problem by
@@ -62,5 +64,7 @@ import './kpi/kpi.css';
     discreteLimit={10} 
     value={55} 
 />`
+
+## License
 
 The Ring guage is licensed under MIT, so fill your boots.
