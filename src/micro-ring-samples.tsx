@@ -19,7 +19,7 @@ export default class MicroRingSamples extends React.Component<Props, State> {
     componentWillMount() {
         this.onToggleRun = this.onToggleRun.bind(this);
         this.setState({
-            count: 28,
+            count: 0,
             sine: Math.round(Math.sin(28 / 10) * 50 + 50)
         });
         setInterval( () => { if(this.state.running) this.setState({
@@ -42,12 +42,21 @@ export default class MicroRingSamples extends React.Component<Props, State> {
             <h1>{this.props.title}</h1>
             <div className="kpi-row">
                 <label>Small</label>
+                <div>
+                    <MicroKPI title="events" discreteLimit={10} limit={50} value={(this.state.count+2)} />
+                    <h5>Auto Mode</h5>
+                    <h6>Indicates small values with segments, large values with laps.</h6>
+                </div>
                 <MicroKPI title="alarm" color="red" limit={100} value={(42 + this.state.count * 2.3) % 100} />
                 <MicroKPI title="outage" color="yellow" limit={100} value={(27 + this.state.count / 0.77) % 100} />
                 <MicroKPI title="available" unit="%" value={this.state.sine} />
             </div>
             <div className="kpi-row kpi-medium">
                 <label>Medium</label>
+                <div>
+                    <MicroKPI title="events" color="yellow" discreteLimit={10} limit={50} value={(this.state.count+2)} />
+                    <h5>Auto Mode</h5>
+                </div>
                 <MicroKPI title="events" color="CornflowerBlue" limit={100} value={(21 + this.state.count * 1.75) % 100} />
                 <MicroKPI title="outage" color="Fuchsia" limit={100} value={(12 + this.state.count * 0.91) % 100} />
                 <MicroKPI title="available" color="cyan" unit="%" value={this.state.sine * 0.5 + 50} />

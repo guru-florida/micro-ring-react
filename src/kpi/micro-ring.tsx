@@ -115,7 +115,7 @@ export default class MicroRing extends React.Component<Props, State> {
             return [{ begin: 0, end: 0.999 }];
 
         // compute bands
-        let _bandgap = 0.10;                // 10% of space dedicated to band gaps
+        let _bandgap = 0.15;                // 10% of space dedicated to band gaps
         let _w = (1.0 - _bandgap) / count;  // width of each segment
         _bandgap /= count;                  // bandgap as distributed amoung the count
         let _b = [];
